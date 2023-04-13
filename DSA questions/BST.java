@@ -1,5 +1,5 @@
-//building a binary search tree
-public class BST
+
+public class BstSearch
 {
 	static class node
 	{	//declaring data members of node
@@ -49,6 +49,36 @@ public class BST
 		System.out.print(root.data+"");
 		inorder(root.right);
 	}
+	
+	public static boolean search(node root, int key) // time complexity O(H)
+	{
+		if(root==null) 
+		{	
+			return false;
+		}
+		
+		if(root.data== key)
+		{
+			//key value found
+			return true;
+		}
+		if(root.data>key)  
+		{
+			//left subtree
+			return search(root.left, key);
+		}
+		
+		else 
+		{
+			//right subtree
+			return search(root.right, key);
+			
+		}
+		
+		
+		
+		
+	}
 	public static void main(String args[])
 	{
 	int values[]={5,1,3,4,2,7};
@@ -60,6 +90,17 @@ public class BST
 	
 	inorder(root);
 	System.out.println();
+	
+	if(search(root, 67)) // condition for the value to be searched
+	{
+		System.out.println("Found");
+	}
+	
+	else
+	{
+		System.out.println(" Not Found");
+	
+	}
 	
 	}
 }
